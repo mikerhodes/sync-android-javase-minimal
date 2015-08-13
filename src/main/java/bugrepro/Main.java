@@ -14,15 +14,23 @@ import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
 
+/**
+ * Simple class which shows how to run a pull replication from
+ * a command line app.
+ *
+ * It's intended that the main method be replaced with something that
+ * reproduces a bug; the code is here as an example and set up shim.
+ */
 class Main {
 
     // E.g., "/home/mike/scratch/sync-android-bug/databases"
     // Be sure it exists!
-    private final String datastoreManagerPath = /* YOUR_PATH_HERE */;
+    static final String datastoreManagerPath = /* YOUR PATH HERE */;
 
+    // Database to replicate from
     // E.g., "https://mikerhodes.cloudant.com/animaldb"
     // Include creds inline, "https://username:password@mikerhodes.blah...."
-    private final String remoteURL = /* YOUR_REMOTE_DATABASE_URL_HERE */;
+    static final String remoteURL = /* YOUR DATABASE URL HERE */;
 
     static final String localDatabaseName = "testDb";
 
@@ -56,8 +64,7 @@ class Main {
         }
 
         ds.close();
-        im.close();
-        manager.deleteDatastore(dbName);
+        manager.deleteDatastore(localDatabaseName);
     }
 
     /* Simple latch used to wait for replication to complete */
