@@ -41,6 +41,11 @@ class Main {
         // Create the local database
         File path = new File(datastoreManagerPath);
         DatastoreManager manager = new DatastoreManager(path.getAbsolutePath());
+
+        // =======================
+        // Replace with your code.
+        // =======================
+
         Datastore ds = manager.openDatastore(localDatabaseName);
 
         // Set up a replication from the local to remote database
@@ -62,6 +67,10 @@ class Main {
         } else {
             System.out.println("Replication complete");
         }
+
+        // ==========================
+        // End replace; cleanup below
+        // ==========================
 
         ds.close();
         manager.deleteDatastore(localDatabaseName);
