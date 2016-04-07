@@ -33,5 +33,6 @@ you've found!
 
 ## Reproducing
 
+1. Update `build.gradle` with the version of the library that exhibits the bug.
 1. Fill in your code in `src/main/java/bugrepro/Main.java`.
 2. Run using `./gradlew run`.
